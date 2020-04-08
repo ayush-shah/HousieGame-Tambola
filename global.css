@@ -1,0 +1,304 @@
+div#rewards {
+  display: flex;
+  flex-flow: row wrap;
+  position: relative;
+}
+@keyframes redItUp {
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes housieNumber {
+  0%,
+  to {
+    border-radius: 10%;
+  }
+
+  50% {
+    border-radius: 50%;
+  }
+}
+
+body,
+html {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+button:disabled {
+  background: #000;
+  color: #fff;
+  text-decoration: line-through;
+}
+* {
+  transition: 1s all ease;
+}
+body {
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  background-color: #1e3932;
+}
+
+#overflowinvisible {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+}
+
+label {
+  display: block;
+}
+
+input,
+select,
+textarea {
+  padding: 0.4em;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  margin: 0 0 0.5em;
+  box-sizing: border-box;
+}
+
+input:disabled {
+  color: #ccc;
+}
+
+input[type="range"] {
+  height: 0;
+}
+
+button {
+  color: #555;
+  background-color: #ececec;
+  outline: 0;
+  z-index: 1;
+  height: 10vh;
+  margin-bottom: 1px;
+  flex: 1 0 50%;
+  border: 0;
+  box-shadow: 0 0 5px #0005;
+  display: flex;
+  justify-content: center;
+}
+
+button:hover,
+button:focus {
+  color: #000;
+  z-index: 2;
+  box-shadow: 0px 0px 10px #295456;
+}
+
+span.housie-chart-class {
+  color: #000;
+  flex: 1 0 5vw;
+  font-size: 14px;
+  position: relative;
+  height: 11vh;
+  display: flex;
+  box-shadow: 0 1px 1px #263546;
+  justify-content: center;
+  align-items: center;
+}
+
+div#housie-number-container {
+  position: relative;
+  height: 30vh;
+  width: auto;
+}
+
+li {
+  list-style: none;
+  cursor: pointer;
+  width: 50%;
+  border: 0.5px solid #0005;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+ul {
+  width: 100%;
+  display: flex;
+  margin: 0;
+  height: 100%;
+  align-self: start;
+  padding-inline-start: 0;
+}
+
+nav {
+  background: #628aa980;
+  height: 10vh;
+}
+
+.housie-number,
+div#housie-number-container,
+span.housie-ticket-class {
+  display: flex;
+  justify-content: center;
+  flex-flow: row-reverse wrap;
+  align-items: center;
+}
+
+.housie-number,
+.housie-number::after,
+.housie-number::before {
+  border-style: solid;
+  animation: housieNumber 3.25s infinite ease-in-out both;
+}
+
+.housie-number {
+  position: relative;
+  width: 2em;
+  height: 2em;
+  padding: 15px;
+}
+
+.housie-number::after,
+.housie-number::before {
+  content: "";
+  position: absolute;
+  width: 2em;
+  height: 2em;
+  transform: rotate(30deg);
+}
+
+.housie-number::before {
+  transform: rotate(60deg);
+}
+
+.addedToList::after,
+.housie-ticket-class::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+}
+
+.addedToList::after {
+  width: 0;
+  background: #3e707f69;
+  transition: all 2s;
+  animation: redItUp 2s linear forwards;
+}
+
+.goLeft {
+  margin-left: 100% !important;
+  transition: all 1s;
+}
+
+main#housieTicket {
+  display: flex;
+  width: 100%;
+  position: relative;
+  background: #fff;
+  color: #000;
+  margin: auto;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  height: 30vh;
+}
+
+span.housie-ticket-class {
+  position: relative;
+  height: 10vh;
+  flex: 1 0 11.1111%;
+}
+
+.housie-ticket-class::before {
+  border: 0.5px solid #0005;
+  width: 100%;
+}
+span.housie-ticket-class.selectedThis {
+  color: white;
+  background: #628aa9;
+  transition: all 2s ease;
+}
+
+span.notThis.housie-ticket-class {
+  background: #fff;
+  transition: all 2s;
+}
+@media only screen and (min-width: 758px) {
+  main#housieTicket {
+    width: 50%;
+  }
+}
+#housie-chart {
+  position: relative;
+  display: flex;
+  padding: 0;
+  width: 100%;
+  height: 100vh;
+  background: white;
+  flex-wrap: wrap;
+  margin: 0;
+  border: 0;
+}
+#housieContainer {
+  position: absolute;
+  transition: all 1s linear;
+  margin-left: 50%;
+  top: 0;
+  width: 50%;
+}
+main {
+  text-align: center;
+  max-width: 100%;
+  height: 100vh;
+  transition: all 1s linear;
+}
+.makeItSmall {
+  max-width: 50%;
+}
+span.housie-number-old {
+  display: flex;
+  align-items: center;
+  width: 2.5em;
+  border: 1px solid;
+  justify-content: center;
+  height: 2.5em;
+  margin-left: 10px;
+}
+div#login {
+  width: 50%;
+  position: relative;
+  margin: 25vh auto;
+  height: 50vh;
+}
+
+input#username {
+  width: 100%;
+  position: relative;
+  border: none;
+  height: 10vw;
+  margin: 5% 0;
+  border-radius: 5px;
+  text-indent: 15px;
+}
+
+input[type="button"] {
+  margin: 10% 0;
+  border: none;
+  padding: 15px;
+  position: relative;
+  border-radius: 5px;
+  width: 80%;
+  display: block;
+}
