@@ -2,7 +2,6 @@
   import { afterUpdate } from "svelte";
   export let num, time;
   afterUpdate(() => {
-
     housieChart(num, time);
   });
   function housieChart(data, time) {
@@ -14,42 +13,21 @@
       span.innerText = x;
       housieChart.appendChild(span);
     }
-    addToList(data, time);
+    gaming(data, time);
   }
-  function addToList(data, time) {
-   
-    let date = new Date();
-    time = Math.round(
-      Math.abs(date.getMinutes() * 60 + date.getSeconds() - time) / 6.5
-    );
-    time = time;
-    setTimeout(() => {
-      gaming(data, time);
-    }, 10000);
-  }
-  function gaming(data, time) {
-
-    if (time >= 90) {
+  let data = [];
+  function gaming(data1, index) {
+    data.push(data1);
+    console.log(data);
+    if (index >= 90) {
       return clearTimeout();
     }
-    if (
-      time > document.getElementsByClassName("addedToList").length &&
-      time <= 90
-    ) {
-      for (let j = 0; j < time; j++) {
-        document
-          .getElementsByClassName("housie-chart-class")
-          [data[j] - 1].classList.add("addedToList");
+    if(index>document.getElementsByClassName('addedToList').length){
+    console.log("hey");
+      for(let j = 0;j<data.length;j++){
+        document.getElementsByClassName('housie-chart-class')[data[j]-1].classList.add('addedToList');
       }
     }
-    if (data.length > 0 && data.length <= 90) {
-      document
-        .getElementsByClassName("housie-chart-class")
-        [data[time] - 1].classList.add("addedToList");
-    }
-    setTimeout(() => {
-      gaming(data, ++time);
-    }, 6500);
   }
 </script>
 

@@ -1,0 +1,346 @@
+@keyframes redItUp {
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes housieNumber {
+  0%,
+  to {
+    border-radius: 10%;
+  }
+
+  50% {
+    border-radius: 50%;
+  }
+}
+
+div#rewards {
+  display: flex;
+  flex-flow: row wrap;
+  position: relative;
+}
+
+body,
+html {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+button:disabled {
+  background-color: #024634;
+  text-decoration: line-through;
+  color: #fff;
+}
+
+* {
+  transition: 1s all ease;
+}
+
+body {
+  color: #fff;
+  margin: 0;
+  font-size: 16px;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  background-color: #1e3932;
+}
+
+#overflowinvisible,
+#overflowInvisible {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+}
+
+label {
+  display: block;
+}
+
+input,
+select,
+textarea {
+  padding: 0.4em;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  margin: 0 0 0.5em;
+  box-sizing: border-box;
+}
+
+input:disabled {
+  color: #ccc;
+}
+
+input[type="range"] {
+  height: 0;
+}
+
+button {
+  color: #555;
+  background-color: #ececec;
+  outline: 0;
+  z-index: 1;
+  height: 10vh;
+  margin-bottom: 1px;
+  flex: 1 0 50%;
+  border: 0;
+  box-shadow: 0 0 5px #0005;
+  display: flex;
+  justify-content: center;
+}
+
+button:focus,
+button:hover {
+  color: #000;
+  z-index: 2;
+  box-shadow: 0 0 10px #295456;
+}
+
+span.housie-chart-class {
+  color: #000;
+  flex: 1 0 5vw;
+  font-size: 14px;
+  position: relative;
+  height: 11vh;
+  box-shadow: 0 1px 1px #263546;
+}
+
+div#housie-number-container {
+  position: relative;
+  height: 30vh;
+  width: auto;
+  flex-flow: row-reverse wrap;
+}
+
+.housie-number,
+div#housie-number-container,
+li,
+span.housie-chart-class,
+span.housie-ticket-class {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+li {
+  list-style: none;
+  cursor: pointer;
+  width: 50%;
+  border: 0.5px solid #0005;
+}
+
+ul {
+  width: 100%;
+  display: flex;
+  margin: 0;
+  height: 100%;
+  align-self: start;
+  padding-inline-start: 0;
+}
+
+nav {
+  background: #628aa980;
+  height: 10vh;
+}
+
+.housie-number,
+span.housie-ticket-class {
+  flex-flow: row-reverse wrap;
+}
+
+.housie-number,
+.housie-number::after,
+.housie-number::before {
+  border-style: solid;
+  animation: housieNumber 3.25s infinite ease-in-out both;
+}
+
+.housie-number {
+  position: relative;
+  width: 2em;
+  height: 2em;
+  padding: 15px;
+}
+
+.housie-number::after,
+.housie-number::before {
+  content: "";
+  position: absolute;
+  width: 2em;
+  height: 2em;
+  transform: rotate(30deg);
+}
+
+.housie-number::before {
+  transform: rotate(60deg);
+}
+
+.addedToList::after,
+.housie-ticket-class::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+}
+
+.addedToList::after {
+  width: 0;
+  background: #3e707f69;
+  transition: all 2s;
+  animation: redItUp 2s linear forwards;
+}
+
+.goLeft {
+  margin-left: 100% !important;
+  transition: all 1s;
+}
+
+#housie-chart,
+main#housieTicket {
+  position: relative;
+  display: flex;
+  width: 100%;
+  background: #fff;
+}
+
+main#housieTicket {
+  color: #000;
+  margin: auto;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  height: 30vh;
+}
+
+span.housie-ticket-class {
+  position: relative;
+  height: 10vh;
+  flex: 1 0 11.1111%;
+}
+
+.housie-ticket-class::before {
+  border: 0.5px solid #0005;
+  width: 100%;
+}
+
+span.housie-ticket-class.selectedThis {
+  color: #fff;
+  background: #628aa9;
+  transition: all 2s ease;
+}
+
+span.notThis.housie-ticket-class {
+  background: #fff;
+  transition: all 2s;
+}
+
+@media only screen and (min-width: 758px) {
+  main#housieTicket {
+    width: 50%;
+  }
+}
+div#counter {
+  position: absolute;
+  right: 0;
+  top: 0;
+  opacity: 0.5;
+  margin: 15px;
+  width: 30vh;
+}
+
+h4 {
+  margin: 0;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+h2#users {
+  text-align: center;
+  margin: 0;
+}
+#housie-chart {
+  padding: 0;
+  height: 100vh;
+  flex-wrap: wrap;
+  margin: 0;
+  border: 0;
+}
+
+#housieContainer,
+main {
+  transition: all 1s linear;
+}
+
+#housieContainer {
+  position: absolute;
+  margin-left: 50%;
+  top: 0;
+  width: 50%;
+}
+
+main {
+  text-align: center;
+  max-width: 100%;
+  height: 100vh;
+}
+
+.makeItSmall {
+  max-width: 50%;
+}
+
+span.housie-number-old {
+  display: flex;
+  align-items: center;
+  width: 2.5em;
+  border: 1px solid;
+  justify-content: center;
+  height: 2.5em;
+  margin-left: 10px;
+}
+
+input[type="button"],
+input[type="text"] {
+  padding: 10px;
+  border: 0;
+  position: relative;
+  border-radius: 5px;
+}
+
+input[type="text"] {
+  width: 100%;
+  margin: 2.5% 0;
+  text-indent: 15px;
+}
+
+input[type="button"] {
+  margin: 5% 0;
+  width: 80%;
+  display: block;
+}
+form {
+  width: 40vw;
+  position: relative;
+  margin: 3% auto;
+}
+.closeIt {
+  display: none !important;
+}
+h6 {
+  margin-left: 3%;
+  margin-bottom: 1%;
+}
+button.playmode {
+  margin-left: 3%;
+}

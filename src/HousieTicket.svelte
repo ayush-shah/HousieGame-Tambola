@@ -1,12 +1,4 @@
 <script>
-  let rewards = {
-    fastfive: 0,
-    fourcorners: 0,
-    bottomline: 0,
-    middleline: 0,
-    topline: 0,
-    fullhousie: 0,
-  };
   function createTicket() {
     document.getElementsByClassName("housie-ticket-class");
     for (let a = 0; 27 > a; a++) {
@@ -151,79 +143,90 @@
     let arr1 = JSON.parse(window.localStorage["arr1"]);
     let arrx = JSON.parse(window.localStorage["arr"]);
     if (num === 0) {
-      if (arr2.length >= 5) {
-        let counter = 0;
-        arr2.forEach(a => {
-          if (arr.includes(a)) {
-            counter++;
+      if (!rewards[0].flag) {
+        if (arr2.length >= 5) {
+          let counter = 0;
+          arr2.forEach(a => {
+            if (arr.includes(a)) {
+              counter++;
+            }
+          });
+          if (counter >= 5) {
+            rewards["fastfive"] = 1;
+            button[num].disabled = true;
           }
-        });
-        if (counter >= 5) {
-          rewards["fastfive"] = 1;
-          button[num].disabled = true;
         }
       }
     } else if (num === 1) {
-      let counter = 0;
-      let four = [0, 4, 10, 14];
-      for (let ij = 0; ij < arr2.length; ij++) {
-        if (arr.includes(arr2[ij]) && four.includes(arr1.indexOf(arr2[ij]))) {
-          counter++;
-        }
-        if (counter === 4) {
-          rewards["fourcorners"] = 1;
-          button[num].disabled = true;
+      if (!rewards[1].flag) {
+        let counter = 0;
+        let four = [0, 4, 10, 14];
+        for (let ij = 0; ij < arr2.length; ij++) {
+          if (arr.includes(arr2[ij]) && four.includes(arr1.indexOf(arr2[ij]))) {
+            counter++;
+          }
+          if (counter === 4) {
+            rewards["fourcorners"] = 1;
+            button[num].disabled = true;
+          }
         }
       }
     } else if (num === 2) {
-      let counter = 0;
-
-      let four = [0, 1, 2, 3, 4];
-      for (let ij = 0; ij < arr2.length; ij++) {
-        if (arr.includes(arr2[ij]) && four.includes(arr1.indexOf(arr2[ij]))) {
-          counter++;
-        }
-        if (counter === 4) {
-          rewards["topline"] = 1;
-          button[num].disabled = true;
+      if (!rewards[2].flag) {
+        let counter = 0;
+        let four = [0, 1, 2, 3, 4];
+        for (let ij = 0; ij < arr2.length; ij++) {
+          if (arr.includes(arr2[ij]) && four.includes(arr1.indexOf(arr2[ij]))) {
+            counter++;
+          }
+          if (counter === 4) {
+            rewards["topline"] = 1;
+            button[num].disabled = true;
+          }
         }
       }
     } else if (num === 3) {
-      let counter = 0;
+      if (!rewards[3].flag) {
+        let counter = 0;
 
-      let four = [5, 6, 7, 8, 9];
-      for (let ij = 0; ij < arr2.length; ij++) {
-        if (arr.includes(arr2[ij]) && four.includes(arr1.indexOf(arr2[ij]))) {
-          counter++;
-        }
-        if (counter === 4) {
-          rewards["middleline"] = 1;
-          button[num].disabled = true;
+        let four = [5, 6, 7, 8, 9];
+        for (let ij = 0; ij < arr2.length; ij++) {
+          if (arr.includes(arr2[ij]) && four.includes(arr1.indexOf(arr2[ij]))) {
+            counter++;
+          }
+          if (counter === 4) {
+            rewards["middleline"] = 1;
+            button[num].disabled = true;
+          }
         }
       }
     } else if (num === 4) {
-      let counter = 0;
+      if (!rewards[4].flag) {
+        let counter = 0;
 
-      let four = [10, 11, 12, 13, 14];
-      for (let ij = 0; ij < arr2.length; ij++) {
-        if (arr.includes(arr2[ij]) && four.includes(arr1.indexOf(arr2[ij]))) {
-          counter++;
-        }
-        if (counter === 4) {
-          rewards["bottomline"] = 1;
-          button[num].disabled = true;
+        let four = [10, 11, 12, 13, 14];
+        for (let ij = 0; ij < arr2.length; ij++) {
+          if (arr.includes(arr2[ij]) && four.includes(arr1.indexOf(arr2[ij]))) {
+            counter++;
+          }
+          if (counter === 4) {
+            rewards["bottomline"] = 1;
+            button[num].disabled = true;
+          }
         }
       }
     } else if (num === 5) {
-      let counter = 0;
-      let four = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
-      for (let ij = 0; ij < arr2.length; ij++) {
-        if (arr.includes(arr2[ij]) && four.includes(arr1.indexOf(arr2[ij]))) {
-          counter++;
-        }
-        if (counter === 15) {
-          rewards["fullhousie"] = 1;
-          button[num].disabled = true;
+      if (!rewards[5].flag) {
+        let counter = 0;
+        let four = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
+        for (let ij = 0; ij < arr2.length; ij++) {
+          if (arr.includes(arr2[ij]) && four.includes(arr1.indexOf(arr2[ij]))) {
+            counter++;
+          }
+          if (counter === 15) {
+            rewards["fullhousie"] = 1;
+            button[num].disabled = true;
+          }
         }
       }
     }
@@ -236,20 +239,6 @@
       Math.floor(Math.random() * (10 * (d % 9) + 10 - 10 * (d % 9)))),
       noRepeatfunc(a, b, c, d);
   }
-  //  function loadDoc() {
-  //   var xhttp = new XMLHttpRequest();
-  //   xhttp.onreadystatechange = function() {
-  //     if (this.readyState == 4 && this.status == 200) {
-  //       cookiesSet();
-  //     }
-  //   };
-  //   xhttp.open("POST", "./rewardsHousie.php", true);
-  //   xhttp.setRequestHeader("Content-type", "application/json");
-  //   xhttp.send(JSON.stringify(rewards));
-  // }
-  // setInterval(() => {
-  //   console.log(loadDoc());
-  // }, 1000);
 </script>
 
 <style>
