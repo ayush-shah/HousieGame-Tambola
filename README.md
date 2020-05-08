@@ -1,5 +1,5 @@
 Housie Game, Indian Version of Bingo, also known as Tambola is a game in which everyone get one or more than one housie ticket.
-There is  a random number non repeating from 1-90 array and this app takes 6.5 seconds per number which takes about 9.75 minutes which is about 585 seconds to complete the game.
+There is  a random number non repeating from 1-90 array and this app takes around 10 seconds per number which takes about 900 seconds to complete the game.
 User has to select the numbers showed in the chart and click the buttons if they think they have completed one of the following 
 Fast Five
 Four Cornes
