@@ -1,0 +1,24 @@
+{
+  "name": "Lets Play Housie",
+  "manifest_version": 1.5,
+  "short_name": "Housie",
+  "theme_color": "#00adb5",
+  "description": "Lets Play Housie",
+  "background_color": "#032729",
+  "display": "fullscreen",
+  "orientation": "landscape",
+  "start_url": "index.html",
+  "icons": [
+    {
+      "src": "./Images/Icon256.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "./Images/Icon512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "version": "1.5"
+}
